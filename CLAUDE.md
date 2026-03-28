@@ -8,15 +8,20 @@ A structured writing workspace template. The user is the author; you are the ass
 
 ## Project Context
 
-{Replace this text — run `/setup` to initialize}
+- **Type:** Long-form fiction (book)
+- **Audience:** Niche/enthusiast readers
+- **Status:** Concept phase — no draft or outline yet
+- **Publication target:** Undecided
+- **Initialized:** 2026-03-28
 
 ## Repository Structure
 
 ```
+working/          # Active drafts and current work-in-progress
+chapters/         # Chapter drafts (for long-form/book projects)
 drafts/           # Completed or alternative drafts
 outlines/         # Document outlines and structure plans
 research/         # Source material and references
-  seo/            # SEO-related research
 notes/            # Brainstorming and ideas
 images/           # Image assets (OG images are 1200x630px)
 archive/          # Old versions, organized in dated subfolders
