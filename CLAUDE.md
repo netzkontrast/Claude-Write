@@ -67,8 +67,8 @@ Located in `.claude/agents/`:
 
 ### Project Status Tracking
 
+- **On every session start, run `/status` first** before doing anything else
 - Keep the Project Context section (above) updated as the project evolves
-- When returning to a project after a gap, run `/status` to orient
 
 ## Additional Notes
 
