@@ -1,57 +1,73 @@
-The purpose of this repository is to contain a writing project. 
+# CLAUDE.md
 
-## Project Context 
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-{Replace this text}
+## What This Is
 
-## General Instructions
+A structured writing workspace template. The user is the author; you are the assistant. This repo manages drafts, research, and publication — not software.
 
-Treat this repository as your workspace. 
+## Project Context
 
-You can invoke MCPs in order to save versions of the text with outside services (Google, Notion, etc). But that activity will always be in addition to creating versions here: not instead of it. 
+{Replace this text — run `/setup` to initialize}
 
-In addition to the above, the user adheres to the following preferences, which you should be careful to honor throughout your work:
+## Repository Structure
 
-### Create, Don't Edit 
+```
+drafts/           # Completed or alternative drafts
+outlines/         # Document outlines and structure plans
+research/         # Source material and references
+  seo/            # SEO-related research
+notes/            # Brainstorming and ideas
+images/           # Image assets (OG images are 1200x630px)
+archive/          # Old versions, organized in dated subfolders
+```
 
-The user may use you to assist with proofreading, editing, or other tasks. A key consideration will always be preservation of voice: the user will use to do things that you can do quicker and better than they can. But they are the author. Remember that they wish to leverage your help carefully and within carefully controlled parameters. 
+## Slash Commands
 
-Your edits should adhere precisely to those instruted limits. You should never do more even if you think that it would be helpful.
+- `/setup` — Initialize a new writing project (interviews user, updates Project Context above)
+- `/status` — View current project state, versions, next steps
+- `/new-version` — Create next sequential version with specific edits
+- `/proofread` — Fix errors (typos, grammar, STT artifacts) while preserving voice
+- `/archive` — Move old versions to `archive/YYYY-MM-DD-description/`
+- `/publish` — Prepare content for publication (CMS, blog, etc.)
 
-Your version control should be meticulous:
+## Specialized Agents
 
-You should assume that the user always wishes that you create a new version of texts so that the original is preserved. By default, you will number drafts sequentially, using a prefix (_v1, v2).
+Located in `.claude/agents/`:
+- **version-manager** — Creates incremental versions, compares drafts
+- **proofreader** — Fixes typos/grammar with strict scope limits
+- **archive-manager** — Workspace cleanup and organization
 
-The user may ask - if a working folder is becoming very cluttered - that you "archive" prior material. Or that earlier versions that they do not wish to maintain be deleted. To archive versions, move the texts into archive ensuring that they are archived within specifically named and identifiable subfolders. For deletions: do not warn, just delete. 
+## Key Principles
 
-## Repository Lifecycle 
+### Version Control
 
-This repository may have a short lived lifecycle (a single blog post) or it may have a longer one (a book). It may be a periodically explored project: you may start by creating a blog post. The user might later return to spin it out into a generative AI podcast. 
+- **Never overwrite originals** — always create a new file with incremented version suffix (`_v1`, `_v2`, etc.)
+- Branch versions use descriptive suffixes: `draft-v3-casual.md`, `draft-v3-technical.md`
+- Archives go in `archive/YYYY-MM-DD-description/` subfolders
+- When user asks to delete files: just delete, no warnings or confirmations
 
-For that reason, ascertain where things are "at" if it's not obvious. Keep a log of the project status in CLAUDE.md, above this section. 
+### Voice Preservation
 
-## Headless CMS
+- The user's voice and style are sacrosanct — edit only what is explicitly requested
+- Never expand edit scope beyond instructions, even if you think it would help
+- Common input method is speech-to-text: watch for homophone errors, missing punctuation, run-on sentences
+- Stylistic quirks (fragments, informal tone, unconventional punctuation) are likely intentional
 
-When working with a headless CMS:
+### Headless CMS Integration
 
-- Treat this repo as the workspace 
-- Validate that the user has provided the correct and authenticated MCP 
-- Push content as instructed or when the user is ready to publish. The drafting and research process will be carried out here. 
+- This repo is the drafting workspace; CMS is the publication target
+- Verify MCP authentication before any CMS operations
+- Never auto-publish — always confirm with the user first
 
-## Research And Notes 
+### Project Status Tracking
 
-The user will use research and notes to gather together source material. You may browse it when appropriate. 
+- Keep the Project Context section (above) updated as the project evolves
+- When returning to a project after a gap, run `/status` to orient
 
-## Images 
+## Additional Notes
 
-The user may also gather images in this repository with the intention of publishing them - or other binaries like video content - alongside the blog. 
-
-You can assist with preparatory activities to that end including:
-
-- Rewriting them with descriptive filenames 
-- Standardising on a certain format 
-- Creating versions for various aspect ratios 
-
-A common request from the user might be to create an OG image,. This refers to Opengraph and is 1200x630px.
-
-
+- MCP integrations (Google, Notion, etc.) are supplementary — always save versions locally in this repo first
+- Research and notes in `research/` and `notes/` are source material; browse when relevant to the task
+- Images: assist with descriptive renaming, format standardisation, aspect ratio variants
+- This repo may evolve (blog post → podcast → book) — always check current state before assuming scope
